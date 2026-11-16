@@ -1,0 +1,611 @@
+/* PASO 1. El ancho incluye padding y borde: facilita calcular tamaños. */
+* {
+  box-sizing: border-box;
+}
+
+/* PASO 2. Estilos generales que heredan los textos. */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #1c2d22; /* Color de texto oscuro natural por defecto */
+  background: #f4f8f4;
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  color: #1c2d22; /* Textos de títulos limpios y oscuros por defecto */
+}
+
+h1 {
+  font-size: 2.7rem;
+  margin: 0 0 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+p {
+  color: #1c2d22; /* Asegura que los párrafos mantengan el color legible normal */
+}
+
+a {
+  color: #2f943c;
+  text-underline-offset: 4px;
+}
+
+/* El foco visible permite recorrer la web con el teclado. */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #16a34a;
+  outline-offset: 4px;
+}
+
+/* PASO 3. Nunca estirar una imagen más allá de su contenedor. */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.contenedor {
+  width: 92%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.seccion {
+  padding: 3.5rem 0;
+}
+
+.fondo {
+  background: #e5f0e5;
+}
+
+.etiqueta {
+  font-weight: bold;
+  color: #2f943c;
+  font-size: .9rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.nota {
+  font-size: .9rem;
+  color: #4a5d51;
+}
+
+/* PASO 4. Flexbox alinea logo y navegación. */
+.cabecera {
+  background: white;
+  border-bottom: 1px solid #cce2cc;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 18px #1c2d2215;
+}
+
+.barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #1c2d22;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a,
+summary {
+  display: block;
+  padding: .65rem .8rem;
+  color: #2f943c;
+  cursor: pointer;
+}
+
+.menu a {
+  text-decoration: none;
+}
+
+.menu a:hover,
+summary:hover {
+  background: #d8ebd8;
+  border-radius: .4rem;
+}
+
+/* Dejar espacio al navegar con #id */
+section[id],
+main[id] {
+  scroll-margin-top: 130px;
+}
+
+/* PASO 5. Submenú desplegable */
+.desplegable {
+  position: relative;
+}
+
+summary {
+  list-style: revert;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 230px;
+  padding: .5rem;
+  margin: .3rem 0 0;
+  list-style: none;
+  background: white;
+  border: 1px solid #b8d4b8;
+  border-radius: .5rem;
+  box-shadow: 0 8px 20px #1c2d2220;
+  z-index: 10;
+}
+
+.submenu a {
+  color: #2f943c;
+}
+
+/* PASO 6. Grillas y columnas */
+.dos-columnas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.dos-columnas>* {
+  min-width: 0;
+}
+
+.hero {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.foto {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 2rem .8rem 2.5rem 1rem;
+}
+
+/* Botones y elementos generales */
+.boton {
+  display: inline-block;
+  padding: .8rem 1.1rem;
+  background: #2f943c;
+  color: white;
+  border: 0;
+  border-radius: .45rem;
+  font: inherit;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background: #247230;
+}
+
+.enlace {
+  display: inline-block;
+  margin: .8rem;
+}
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.tarjeta {
+  padding: 1.5rem;
+  border: 1px solid #cce2cc;
+  border-radius: .7rem;
+  background: white;
+}
+
+.numero {
+  color: #2f943c;
+  font-weight: bold;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+figure {
+  margin: 0;
+}
+
+.galeria img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: .6rem;
+}
+
+figcaption {
+  padding-top: .5rem;
+}
+
+blockquote {
+  margin-left: 0;
+  font-size: 1.35rem;
+}
+
+.orientador {
+  border: 1px solid #b8d4b8;
+  border-radius: .6rem;
+  padding: 1.5rem;
+  min-width: 0;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 .5rem;
+  color: #1c2d22;
+}
+
+.orientador>label {
+  display: inline-block;
+  margin: .4rem 1rem .4rem 0;
+  padding: .4rem;
+  cursor: pointer;
+  color: #1c2d22;
+}
+
+.orientador>input:checked+label {
+  background: #2f943c;
+  color: white;
+  border-radius: .3rem;
+}
+
+.resultados {
+  background: white;
+  padding: 1.5rem;
+  border-radius: .5rem;
+  margin-top: 1rem;
+}
+
+.respuesta {
+  display: none;
+}
+
+#mochila:checked~.resultados .mochila,
+#libreta:checked~.resultados .libreta,
+#abrigo:checked~.resultados .abrigo {
+  display: block;
+}
+
+/* Indicador de Ocupación / Aforo (NUEVA FUNCIONALIDAD) */
+.ocupacion {
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: .5rem .8rem;
+  border-radius: .4rem;
+  margin-top: .8rem;
+  display: inline-block;
+}
+
+.ocupacion.disponible {
+  background: #e5f4e5;
+  color: #1b5e20;
+  border: 1px solid #cce2cc;
+}
+
+.ocupacion.moderado {
+  background: #fff8e1;
+  color: #f57f17;
+  border: 1px solid #ffe082;
+}
+
+.ocupacion.lleno {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+.formulario {
+  display: grid;
+  gap: .6rem;
+  background: white;
+  border: 1px solid #cce2cc;
+  padding: 1.5rem;
+  border-radius: .7rem;
+}
+
+.formulario>label {
+  font-weight: bold;
+  color: #1c2d22;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  min-width: 0;
+  font: inherit;
+  padding: .7rem;
+  border: 1px solid #9db59d;
+  border-radius: .3rem;
+  background: white;
+  color: #1c2d22;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: #2f943c;
+}
+
+.pie {
+  background: #17251a;
+  color: white;
+  padding: 2rem 0;
+}
+
+.pie a {
+  color: white;
+}
+
+/* Botones de Cabecera (Alto Contraste y Menú Hamburguesa) */
+.boton-contraste {
+  background: #1c2d22;
+  color: white;
+  border: 1px solid #cce2cc;
+  padding: .4rem .7rem;
+  font-weight: bold;
+  font-size: 0.85rem;
+  border-radius: .4rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+}
+
+.boton-contraste:hover {
+  background: #2f943c;
+}
+
+.boton-hamburguesa {
+  display: none;
+  background: transparent;
+  border: 2px solid #2f943c;
+  color: #2f943c;
+  padding: .4rem .7rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border-radius: .4rem;
+  cursor: pointer;
+  align-items: center;
+  gap: .4rem;
+}
+
+.boton-hamburguesa:hover {
+  background: #d8ebd8;
+}
+
+.boton-hamburguesa::before {
+  content: "☰";
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* ==========================================
+   ESTILOS DE MODO ALTO CONTRASTE (ACCESIBILIDAD)
+   ========================================== */
+body.alto-contraste {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+body.alto-contraste p,
+body.alto-contraste span,
+body.alto-contraste label,
+body.alto-contraste legend {
+  color: #ffffff !important;
+}
+
+body.alto-contraste .cabecera,
+body.alto-contraste .fondo,
+body.alto-contraste .tarjeta,
+body.alto-contraste .resultados,
+body.alto-contraste .formulario,
+body.alto-contraste input,
+body.alto-contraste select,
+body.alto-contraste textarea,
+body.alto-contraste .submenu {
+  background: #121212 !important;
+  color: #ffffff !important;
+  border-color: #ffff00 !important;
+}
+
+body.alto-contraste h1,
+body.alto-contraste h2,
+body.alto-contraste h3,
+body.alto-contraste a,
+body.alto-contraste .etiqueta,
+body.alto-contraste .numero {
+  color: #ffff00 !important;
+}
+
+body.alto-contraste .boton,
+body.alto-contraste .boton-hamburguesa,
+body.alto-contraste .boton-contraste {
+  background: #ffff00 !important;
+  color: #000000 !important;
+  border-color: #ffff00 !important;
+  font-weight: bold;
+}
+
+/* TABLET (900px o menos) */
+@media (max-width: 900px) {
+  .barra {
+    gap: .4rem;
+  }
+
+  .tarjetas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* CELULAR (600px o menos) */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .dos-columnas,
+  .tarjetas,
+  .galeria {
+    grid-template-columns: 1fr;
+  }
+
+  .dos-columnas {
+    gap: 1.5rem;
+  }
+
+  .hero,
+  .seccion {
+    padding-top: 2.2rem;
+    padding-bottom: 2.2rem;
+  }
+
+  /* Fuerza a que el atributo hidden oculte el menú en móvil */
+  #navegacion[hidden] {
+    display: none !important;
+  }
+
+  .boton-hamburguesa {
+    display: inline-flex;
+  }
+
+  .barra nav {
+    width: 100%;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .3rem;
+  }
+
+  .menu a,
+  summary {
+    padding: .65rem .8rem;
+    font-size: 1rem;
+  }
+
+  .submenu {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    border: none;
+    background: #e5f0e5;
+    margin-top: .3rem;
+  }
+
+  section[id],
+  main[id] {
+    scroll-margin-top: 190px;
+  }
+}
+
+/* En escritorio el botón hamburguesa se oculta y el menú se muestra siempre */
+@media (min-width: 601px) {
+  .boton-hamburguesa {
+    display: none !important;
+  }
+  
+  #navegacion {
+    display: block !important;
+  }
+}
+
+/* Detalles naturales y tipografía */
+.postal {
+  background: #fff;
+  padding: .8rem;
+  border: 1px solid #cce2cc;
+  border-radius: 2rem 1rem 2.8rem 1rem;
+  box-shadow: 8px 10px 0 #d2e6d2;
+}
+
+.postal figcaption {
+  padding: .6rem .5rem .2rem;
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: #1c2d22;
+}
+
+.hero h1 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  font-size: clamp(2.2rem, 4.6vw, 3.8rem);
+  letter-spacing: -.035em;
+}
+
+h2 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+}
+
+.tarjeta:nth-child(2) {
+  background: #e5f4e5;
+  border-radius: 1.5rem .6rem 1.5rem .6rem;
+}
+
+blockquote {
+  font-family: Georgia, serif;
+  font-style: italic;
+  max-width: 780px;
+  color: #1c2d22;
+}
+
+textarea {
+  resize: vertical;
+}
