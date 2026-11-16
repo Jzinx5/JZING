@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- PASO 1: permite que el navegador use el ancho real del celular. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siguiente paso | JZNG</title>
+  <!-- PASO 2: conectar este HTML con el archivo CSS compartido. -->
+  <link rel="stylesheet" href="css/estilos.css">
+  <!-- Este icono aparece en la pestaña del navegador. -->
+  <link rel="icon" type="image/svg+xml" href="iconos/favicon.svg">
+</head>
+
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <!-- PASO 3: este header permanece visible con position: sticky en CSS. -->
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="index.html"><img src="iconos/favicon.svg" alt="" width="42" height="42">JZNG</a>
+      <!-- PASO 4: la lista principal se ordena horizontalmente con Flexbox. -->
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="index.html#nosotros">Nosotros</a></li>
+          <li>
+            <!-- details abre el submenú con clic, Enter o toque; no necesita JS. -->
+            <details class="desplegable">
+              <summary>Explorar</summary>
+              <!-- Esta lista es el menú vertical desplegable. -->
+              <ul class="submenu">
+                <li><a href="index.html#servicios">Funciones</a></li>
+                <li><a href="index.html#orientador">Mapa GPS</a></li>
+                <li><a href="index.html#contacto">Consultar ruta</a></li>
+              </ul>
+            </details>
+          </li>
+          <li><a href="recursos.html">Video y guía</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="contenido" class="contenedor seccion">
+    <section class="confirmacion" aria-labelledby="confirmado">
+      <p class="etiqueta">Final de la simulación</p>
+      <h1 id="confirmado">El bus está más cerca de lo que imaginas.</h1>
+      <p>Así se vería la confirmación del estado de tu ruta en tiempo real. En la aplicación real, recibirás alertas automáticas cuando tu autobús esté a pocos minutos de llegar al paradero.</p>
+      <p>Este es un mensaje fijo de prueba. No se ha guardado información de ubicación ni realizado seguimiento GPS real.</p>
+      <h2>¿Quieres realizar otra consulta?</h2>
+      <p>Vuelve al mapa interactivo para revisar otra línea o regresa al formulario de consulta.</p><a class="boton"
+        href="index.html#orientador">Ver otras rutas</a><a class="enlace" href="index.html#contacto">Volver a consultar</a>
+    </section>
+  </main>
+  <!-- PASO FINAL: pie compartido por las páginas del sitio. -->
+  <footer class="pie">
+    <div class="contenedor">
+      <p><strong>JZNG</strong> · Movilidad urbana en tiempo real (ODS 11)</p>
+      <p>Contacto de ejemplo: soporte@jzng.org</p>
+      <nav class="redes" aria-label="Redes sociales de referencia">
+        <!-- Son páginas generales de las redes; reemplazar por cuentas del proyecto. -->
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src="iconos/facebook.svg"
+            alt="" width="24" height="24">Facebook</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src="iconos/instagram.svg"
+            alt="" width="24" height="24">Instagram</a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><img src="iconos/youtube.svg"
+            alt="" width="24" height="24">YouTube</a>
+      </nav>
+      <p>© 2026 JZNG · Proyecto educativo ODS 11 · <a href="FUENTES.txt">Créditos de recursos</a></p>
+    </div>
+  </footer>
+</body>
+
+</html>

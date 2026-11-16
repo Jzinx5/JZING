@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio | JZNG</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="icon" type="image/svg+xml" href="iconos/favicon.svg">
+  <!-- Script principal del menú y la accesibilidad con defer -->
+  <script src="js/menu.js" defer></script>
+</head>
+
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="index.html"><img src="iconos/favicon.svg" alt="" width="42" height="42">JZNG</a>
+      
+      <!-- NUEVA FUNCIONALIDAD: Botón de Modo Accesible / Alto Contraste -->
+      <button id="boton-contraste" aria-label="Activar alto contraste" class="boton-contraste" title="Alto contraste">
+        👁️ Contraste
+      </button>
+
+      <!-- Botón de menú móvil -->
+      <button id="boton-menu" aria-expanded="false" aria-label="Abrir menú" class="boton-hamburguesa">
+        <span id="texto-menu">Menú</span>
+      </button>
+
+      <!-- Navegación principal (comienza oculta en móvil mediante el atributo hidden) -->
+      <nav id="navegacion" aria-label="Navegación principal" hidden>
+        <ul class="menu">
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="index.html#nosotros">Nosotros</a></li>
+          <li>
+            <details id="resolver" class="desplegable">
+              <summary>Explorar</summary>
+              <ul class="submenu">
+                <li><a href="index.html#servicios">Funciones</a></li>
+                <li><a href="index.html#orientador">Mapa GPS</a></li>
+                <li><a href="index.html#contacto">Consultar ruta</a></li>
+              </ul>
+            </details>
+          </li>
+          <li><a href="recursos.html">Video y guía</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" class="hero contenedor dos-columnas" aria-labelledby="titulo">
+      <div>
+        <p class="etiqueta">MOVILIDAD URBANA SOSTENIBLE · ODS 11</p>
+        <h1 id="titulo">JZNG.<br>Llega a tiempo y sin esperas.</h1>
+        <p>Visualiza la entrada y salida de buses en tiempo real. Con nuestro mapa GPS interactivo, descubre exactamente cuánto falta para tu ruta y promueve ciudades más conectadas.</p>
+        <a class="boton" href="#orientador">Ver mapa en vivo</a>
+        <a class="enlace" href="recursos.html">Conocer ODS 11</a>
+        <p class="nota">Plataforma tecnológica para una movilidad inteligente.</p>
+      </div>
+      <figure class="postal"><img class="foto" src="imagenes/ods11.png" alt="Movilidad urbana sostenible con JZNG" width="1200" height="1000">
+        <figcaption>ODS 11, transporte público en tiempo real.</figcaption>
+      </figure>
+    </section>
+    
+    <section id="nosotros" class="seccion fondo">
+      <div class="contenedor dos-columnas">
+        <img class="foto" src="imagenes/feria.jpeg" alt="Red de transporte público en la ciudad" width="1000" height="667" loading="lazy">
+        <div>
+          <p class="etiqueta">Conectando la ciudad en tiempo real</p>
+          <h2>Tu tiempo en la ciudad es valioso.</h2>
+          <p>JZNG es una aplicación diseñada bajo los principios del ODS 11, facilitando información precisa sobre el transporte público para reducir la incertidumbre en los desplazamientos diarios.</p>
+          <h3>Nuestra propuesta</h3>
+          <p>Monitorear la entrada y salida de diferentes buses mediante un mapa GPS interactivo que muestra el tiempo exacto de llegada a tu paradero.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="seccion contenedor">
+      <p class="etiqueta">Un recorrido sencillo</p>
+      <h2>Del “¿dónde viene?” al “ya llega”.</h2>
+      <div class="tarjetas">
+        <article class="tarjeta"><span class="numero">01 / Monitorea</span>
+          <h3>Entrada y salida de buses</h3>
+          <p>Consulta el flujo constante de las unidades de transporte en tiempo real.</p><a href="#orientador">Ver rutas activas</a>
+        </article>
+        <article class="tarjeta"><span class="numero">02 / Localiza</span>
+          <h3>Mapa GPS interactivo</h3>
+          <p>Ubica la posición exacta de los vehículos en la ciudad al instante.</p><a href="#contacto">Ver mapa en vivo</a>
+        </article>
+        <article class="tarjeta"><span class="numero">03 / Optimiza</span>
+          <h3>Tiempos exactos</h3>
+          <p>Conoce cuánto falta exactamente para que tu ruta llegue a tu paradero.</p><a href="recursos.html">Ver la guía</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECCIÓN ORIENTADOR CON INDICADOR DE AFORO -->
+    <section id="orientador" class="seccion fondo">
+      <div class="contenedor">
+        <p class="etiqueta">Estado de rutas en tiempo real</p>
+        <h2>¿Qué línea deseas consultar?</h2>
+        <p>Elige una ruta de demostración para revisar su estado GPS y nivel de ocupación en tiempo real.</p>
+        
+        <fieldset class="orientador">
+          <legend>Línea de transporte</legend>
+          <input type="radio" name="objeto" id="mochila" checked><label for="mochila">Línea 101 - Norte</label>
+          <input type="radio" name="objeto" id="libreta"><label for="libreta">Línea 204 - Centro</label>
+          <input type="radio" name="objeto" id="abrigo"><label for="abrigo">Línea Circular - Sur</label>
+          
+          <div class="resultados">
+            <div class="respuesta mochila">
+              <p class="etiqueta">GPS Activo · Ruta 101</p>
+              <h3>Unidad en tránsito hacia el Paradero Central</h3>
+              <p>El autobús se encuentra a 3 paraderos de distancia. Tiempo estimado de llegada: <strong>4 minutos</strong>.</p>
+              <p class="ocupacion disponible">🟢 Aforo: <strong>Asientos disponibles (40%)</strong></p>
+            </div>
+            
+            <div class="respuesta libreta">
+              <p class="etiqueta">GPS Activo · Ruta 204</p>
+              <h3>Autobús próximo a salir del terminal sur</h3>
+              <p>La unidad está completando su pausa programada. Tiempo estimado de llegada a tu ubicación: <strong>9 minutos</strong>.</p>
+              <p class="ocupacion moderado">🟡 Aforo: <strong>Tráfico moderado / Parcial (75%)</strong></p>
+            </div>
+            
+            <div class="respuesta abrigo">
+              <p class="etiqueta">GPS Activo · Línea Circular</p>
+              <h3>Vehículo circulando con normalidad</h3>
+              <p>Tránsito fluido en la vía principal. Tiempo estimado de llegada al siguiente punto: <strong>2 minutos</strong>.</p>
+              <p class="ocupacion lleno">🔴 Aforo: <strong>Unidad llena / Sin asientos (95%)</strong></p>
+            </div>
+            
+            <a class="boton" href="#contacto">Seleccionar esta ruta</a>
+          </div>
+        </fieldset>
+        <p class="nota">Simulación interactiva basada en datos de demostración de JZNG.</p>
+      </div>
+    </section>
+
+    <section id="contacto" class="seccion fondo">
+      <div class="contenedor dos-columnas">
+        <div>
+          <p class="etiqueta">Consulta de rutas</p>
+          <h2>Planifica tu próximo viaje.</h2>
+          <p>Completa datos ficticios para probar la simulación del mapa GPS interactivo en tiempo real.</p>
+          <p class="nota">Esta práctica no almacena información de ubicación real ni realiza seguimiento personal.</p>
+        </div>
+        
+        <form action="confirmacion.html" method="get" class="formulario">
+          <label for="nombre">Nombre de prueba</label><input id="nombre" type="text" required maxlength="60" placeholder="Ejemplo: Carlos" autocomplete="off">
+          <label for="correo">Correo de prueba</label><input id="correo" type="email" required placeholder="carlos@example.com" autocomplete="off">
+          <label for="actividad">Línea de bus de interés</label><select id="actividad" required>
+            <option value="">Selecciona una línea</option>
+            <option>Línea 101 - Norte</option>
+            <option>Línea 204 - Centro</option>
+            <option>Línea Circular - Sur</option>
+          </select>
+          <label for="detalle">Paradero o destino</label><textarea id="detalle" required minlength="8" maxlength="240" rows="3" placeholder="Escribe tu paradero o zona de espera"></textarea>
+          <div><input id="acepto" type="checkbox" required> <label for="acepto">Entiendo que es una simulación de JZNG.</label>
+          </div>
+          <button type="submit" class="boton">Ver estado en el mapa</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p><strong>JZNG</strong> · Movilidad urbana en tiempo real (ODS 11)</p>
+      <p>Contacto de ejemplo: soporte@jzng.org</p>
+      <p>© 2026 JZNG · Proyecto educativo ODS 11</p>
+    </div>
+  </footer>
+</body>
+
+</html>
